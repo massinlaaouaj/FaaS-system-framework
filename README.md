@@ -39,10 +39,10 @@ toda la ejecución del programa y se indica al inicializar el programa.
 
 <br>
 
-- #### [APIs Contratos](APIContracts/README.md)
-- #### [Puntos de extensión y ciclo de vida](ExtensionPointsAndLiveCycle/README.md)
-- #### [Validation y Tests](ValidationAndTests/README.md)
-- #### [Instalacion y configuracion](Installation&Configuration/README.md)
+- #### [APIs Contratos](src/main/resources/documentation/APIContracts/README.md)
+- #### [Puntos de extensión y ciclo de vida](src/main/resources/documentation/ExtensionPointsAndLiveCycle/README.md)
+- #### [Validation y Tests](src/main/resources/documentation/ValidationAndTests/README.md)
+- #### [Instalacion y configuracion](src/main/resources/documentation/Installation&Configuration/README.md)
 <!-- - #### [Ejemplos](src/main/resources/documentation/Examples/README.md) -->
-- #### [Ejemplos](../../java/main/Main.java)
-- #### [Javadoc del proyecto](../javadoc)
+- #### [Ejemplos](src/main/java/main/Main.java)
+- #### [Javadoc del proyecto](src/main/resources/javadoc)
