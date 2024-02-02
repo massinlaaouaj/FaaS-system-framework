@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @param <T> Parámetro de entrada
  * @param <R> Parámetro de salida
  */
-public class Request<T,R> implements Serializable{
+public class Request<T,R> implements Serializable {
 
 	private Action<T,R> action;
 	private T input;

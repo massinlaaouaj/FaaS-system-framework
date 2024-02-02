@@ -15,9 +15,7 @@ public interface PolicyManager {
      * @param <T>
      * @param <R>
      */
-    public <T,R> List<Integer> invokeAction
-            (List<Invoker> list, 
-             T input, int memoryNeeded);
+    public <T,R> List<Integer> invokeAction(List<Invoker> list, T input, int memoryNeeded);
 
 
     /**
@@ -29,8 +27,6 @@ public interface PolicyManager {
      * @param <T>
      * @param <R>
      */
-    public <T,R> List<Integer> invokeAction
-            (List<Invoker> list,
-             List<T> input, int memoryNeeded);
+    public <T,R> List<Integer> invokeAction(List<Invoker> list, List<T> input, int memoryNeeded);
     
 }

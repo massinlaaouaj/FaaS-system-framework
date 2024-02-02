@@ -41,7 +41,7 @@ public class ActionProxyInvocationHandler<T, R> implements InvocationHandler {
             if(!isAsync) {
                 if(!isGroupalInvoke) {
                     return controller.invokeAction(actionName, args[0]);
-                } else if (isGroupalInvoke){
+                } else if (isGroupalInvoke) {
                     List<T> lista = (List<T>) args[0];
                     return controller.invokeAction(actionName, lista);
                 } else {
@@ -50,7 +50,7 @@ public class ActionProxyInvocationHandler<T, R> implements InvocationHandler {
             } else {
                 if(!isGroupalInvoke) {
                     return controller.invokeAction_async(actionName, args[0]);
-                } else if (isGroupalInvoke){
+                } else if (isGroupalInvoke) {
                     List<T> lista = (List<T>) args[0];
                     return controller.invokeAction_async(actionName, lista);
                 } else {

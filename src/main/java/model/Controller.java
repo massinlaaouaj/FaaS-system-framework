@@ -161,7 +161,7 @@ public final class Controller implements Observer, Calculator {
 
         // Mostramos un mensaje de error en caso de no encontrar la accion
         if(actionToExecute == null){
-            System.err.println("La accion " + actionName + " no esta registrada en nuestro sistema");
+            System.err.println("La acción " + actionName + " no esta registrada en nuestro sistema");
             return null;
         }
 

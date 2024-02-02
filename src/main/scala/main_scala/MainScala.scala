@@ -16,11 +16,5 @@ object Main {
     controller.registerAction("texttoascii", texttoascii, 100)
 
     controller.invokeAction("texttoascii", text)
-
-
   }
-
-
-  println("Hola")
-
 }

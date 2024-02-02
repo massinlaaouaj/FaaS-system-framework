@@ -1,8 +1,11 @@
 package actions_scala
 
 import actions.Action
+import decorators.TimerDecorator
 
-class TextToASCIIAction extends Action[String, String]{
+
+
+class TextToASCIIAction extends Action[String, String] {
   /**
    * Ejecución de la tarea en la acción/función escoguida.
    *

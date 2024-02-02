@@ -2,15 +2,21 @@ package model_scala
 
 import actions.Action
 import model.{Controller, Invoker}
-import observer.Observable
+import observer.{Observable, Observer}
 import policies.{GreedyGroup, PolicyManager}
+import reflect.Calculator
 
-class ControllerScala(numberOfInvoker: Integer = 1, memoryOfInvokers: Integer = 1024, pm: PolicyManager = GreedyGroup) {
+import java.util.List
+
+class ControllerScala(numberOfInvoker: Integer = 1, memoryOfInvokers: Integer = 1024, pm: PolicyManager = new GreedyGroup) extends Observer with Calculator {
 
   val controller: Controller = new Controller(numberOfInvoker, memoryOfInvokers, pm)
 
   def registerAction[T, R](actionName: String, action: Action[T, R], memoryNeeded: Integer)
   = controller.registerAction(actionName, action, memoryNeeded)
+
+  def invokeAction[T](actionName: String, input: T)
+  = controller.invokeAction(actionName, input)
 
   def invokeAction[T](actionName: String, input: List[T])
   = controller.invokeAction(actionName, input)
@@ -18,7 +24,7 @@ class ControllerScala(numberOfInvoker: Integer = 1, memoryOfInvokers: Integer = 
   def invokeAction_async[T](actionName: String, input: List[T])
   = controller.invokeAction_async(actionName, input)
 
-  def invokeAction_async[T](actionName: String, input: List[T])
+  def invokeAction_async[T](actionName: String, input: T)
   = controller.invokeAction_async(actionName, input)
 
   def createActionProxy(actionName: String, isAsync: Boolean, isGroupalInvoke: Boolean)

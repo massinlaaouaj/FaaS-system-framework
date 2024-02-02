@@ -77,7 +77,7 @@ public class Client {
             
             //EL CLIENTE CREA LA PETICIÓN
             
-            Request clientRequest2 = new Request(reduceAction,result,false,false);
+            Request clientRequest2 = new Request(reduceAction, result,false,false);
 
             // MANDA LA PETICIÓN AL SERVIDOR.
             out2.writeObject(clientRequest2);

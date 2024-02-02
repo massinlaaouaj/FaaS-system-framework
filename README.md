@@ -43,6 +43,5 @@ toda la ejecución del programa y se indica al inicializar el programa.
 - #### [Puntos de extensión y ciclo de vida](src/main/resources/documentation/ExtensionPointsAndLiveCycle/README.md)
 - #### [Validation y Tests](src/main/resources/documentation/ValidationAndTests/README.md)
 - #### [Instalacion y configuracion](src/main/resources/documentation/Installation&Configuration/README.md)
-<!-- - #### [Ejemplos](src/main/resources/documentation/Examples/README.md) -->
-- #### [Ejemplos](src/main/java/main/Main.java)
+- #### [Ejemplos](src/main/resources/documentation/Examples/README.md)
 - #### [Javadoc del proyecto](src/main/resources/javadoc)

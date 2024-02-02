@@ -16,7 +16,7 @@ import java.net.Socket;
  */
 public class FaaSystem {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         ServerSocket serverSocket = null;
 
         try {
@@ -53,8 +53,8 @@ public class FaaSystem {
  * Clase cliente
  */
 class ClientHandler implements Runnable {
-	
-	
+
+
     private Socket socket;
     private Calculator controller;
 
@@ -68,20 +68,20 @@ class ClientHandler implements Runnable {
     }
 
     @SuppressWarnings("rawtypes")
-	@Override
+    @Override
     public void run() {
         try {
 
-        	ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+            ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 
             Request clientRequest = null;
-			try {
-				clientRequest = (Request) in.readObject();
-			} catch (ClassNotFoundException e) {
-				System.err.println(e.getMessage());
-				System.exit(0);
-			}
-			
+            try {
+                clientRequest = (Request) in.readObject();
+            } catch (ClassNotFoundException e) {
+                System.err.println(e.getMessage());
+                System.exit(0);
+            }
+
             System.out.println("Received request from client: " + clientRequest.getAction());
 
             Request result = processRequest(clientRequest);
@@ -98,11 +98,11 @@ class ClientHandler implements Runnable {
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-	private Request processRequest(Request request) throws Exception {
-    	
-    	//Registro la accion a utilizar en el controller, la proceso y devuelvo el resultado.
-    	((Controller) controller).registerAction(request.getAction().getName(), request.getAction(), 100);
-    	
+    private Request processRequest(Request request) throws Exception {
+
+        //Registro la accion a utilizar en el controller, la proceso y devuelvo el resultado.
+        ((Controller) controller).registerAction(request.getAction().getName(), request.getAction(), 100);
+
     	/*		ASI PODRIA INVOCAR DIRECTAMENTE UN ADD DESDE EL PROXY.
         Calculator proxy = (Calculator) ActionProxy.newInstance(controller);
 
@@ -110,11 +110,10 @@ class ClientHandler implements Runnable {
         int result = proxy.add(2, 3);
         System.out.println("Result: " + result);
        */
-    	
-    	
-    	request.setResult(((Controller) controller).createActionProxy(request.getAction().getName(), request.isAsync(), request.isGroupalInvoke()).run(request.getInput()));
-    	
+
+
+        request.setResult(((Controller) controller).createActionProxy(request.getAction().getName(), request.isAsync(), request.isGroupalInvoke()).run(request.getInput()));
+
         return request;
     }
 }
-

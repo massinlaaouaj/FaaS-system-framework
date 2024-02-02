@@ -7,7 +7,7 @@ import actions.Action;
  * @param <T> Parámetro de entrada
  * @param <R> Parámetro de salida
  */
-public class TimerDecorator<T,R> implements Action<T,R>{
+public class TimerDecorator<T,R> implements Action<T,R> {
 	
 	private final Action<T,R> action;
 
@@ -34,5 +34,4 @@ public class TimerDecorator<T,R> implements Action<T,R>{
 	public String getName() {
 		return this.action.getName();
 	}
-
 }
