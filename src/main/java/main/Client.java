@@ -3,6 +3,7 @@ package main;
 import actions.Action;
 import actions.ReduceAction;
 import actions.WordCountMapAction;
+import org.apache.commons.io.output.TeeOutputStream;
 import utils.Request;
 import utils.Utils;
 
@@ -12,15 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Clase que actua como cliente que envia peticiones al servidor.
+ */
 public class Client {
     @SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) {
         try {
-            // Crear socket server
+            // Crear socket server en local con el puerto 12345
             Socket socket = new Socket("localhost", 12345);
 
             ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-
             
             saveOutputInResources();
     		
@@ -41,7 +44,6 @@ public class Client {
     		
     		//Creo las acciones que voy a utilizar.
     		Action<String, Map<String,Integer>> wordCountMapAction = new WordCountMapAction();
-    		
             
             //EL CLIENTE CREA LA PETICIÓN
             
@@ -49,23 +51,19 @@ public class Client {
 
             // MANDA LA PETICIÓN AL SERVIDOR.
             out.writeObject(clientRequest);
-
             
             ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 
             // RECIBE LA PETICIÓN DEL SERVIDOR RESPONDIDA.
             Request serverResponse = (Request) in.readObject();
             List<Map<String, Integer>> result = (List<Map<String, Integer>>) serverResponse.getResult();
-           
             
             for(Map<String,Integer> map : result) {
             	Utils.printMap(map);
             }
-            
 
             // Cerrar
             socket.close();
-            
 
             // Crear socket server
             Socket socket2 = new Socket("localhost", 12345);
@@ -83,7 +81,6 @@ public class Client {
 
             // MANDA LA PETICIÓN AL SERVIDOR.
             out2.writeObject(clientRequest2);
-
             
             ObjectInputStream in2 = new ObjectInputStream(socket2.getInputStream());
 
@@ -113,14 +110,13 @@ public class Client {
         OutputStream fileOutputStream;
 		try {
 			fileOutputStream = new FileOutputStream(file);
-			// Combina los flujos de salida (consola y archivo)
-	        //OutputStream combinedOutputStream = new TeeOutputStream(consoleOutputStream, fileOutputStream);
-	     // Crea un nuevo PrintStream que apunta al flujo combinado
-	        //PrintStream printStream = new PrintStream(combinedOutputStream);
-	     // Redirige la salida estàndar a nuestro nuevo PrintStream
-	        //System.setOut(printStream);
+            // Combina los flujos de salida (consola y archivo)
+            OutputStream combinedOutputStream = new TeeOutputStream(consoleOutputStream, fileOutputStream);
+            // Crea un nuevo PrintStream que apunta al flujo combinado
+            PrintStream printStream = new PrintStream(combinedOutputStream);
+            // Redirige la salida estàndar a nuestro nuevo PrintStream
+            System.setOut(printStream);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

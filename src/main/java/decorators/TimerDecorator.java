@@ -4,8 +4,8 @@ import actions.Action;
 
 /**
  * Cronometro que monitorea el tiempo de ejecución de la función de usuario e imprima por pantalla el tiempo transcurrido.
- * @param <T>
- * @param <R>
+ * @param <T> Parámetro de entrada
+ * @param <R> Parámetro de salida
  */
 public class TimerDecorator<T,R> implements Action<T,R>{
 	

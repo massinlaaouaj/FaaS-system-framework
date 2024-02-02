@@ -10,6 +10,7 @@ public interface Calculator {
      * @param arg1
      * @param arg2
      * @return
+     * @throws Exception
      */
     public int add(int arg1, int arg2) throws Exception;
 }

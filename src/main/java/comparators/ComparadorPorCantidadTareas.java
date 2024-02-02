@@ -4,7 +4,7 @@ import model.Invoker;
 import java.util.Comparator;
 
 /**
- * Los objetos de una lista que queramos ordenar TIENEN que ser comparables. Implementar Comparable<Objeto>
+ * Los objetos de una lista que queramos ordenar TIENEN que ser comparables. Implementar Comparable
  *     (metodo CompareTo)
  * Si creo un comparator, un criterio de comparación TIENE que ser un elemento capaz de comparar.
  * Implementar la inferfaz Comparator (metodo Compare)

@@ -13,8 +13,8 @@ import actions.Action;
  * junto con su identificador y parámetros de entrada. En invocaciones futuras donde coincidan
  * los parámetros de entrada, devolveremos el resultado de la acción directamente
  * recuperándose de la caché, sin ejecutar la acción
- * @param <T>
- * @param <R>
+ * @param <T> Parámetro de entrada
+ * @param <R> Parámetro de entrada
  */
 public class MemoizationDecorator<T,R> implements Action<T,R>{
 

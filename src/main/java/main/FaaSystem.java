@@ -11,13 +11,13 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * Clase que actua como servidor (sistema FaaS) que recibe peticiones del cliente/s.
+ */
 public class FaaSystem {
 
 	public static void main(String[] args) {
         ServerSocket serverSocket = null;
-        //Creo el Controller con 3 invokers con una capacidad de memoria de 1000 cada invoker.
-        //Y le asigno una política.
-      
 
         try {
             // Creo socket server

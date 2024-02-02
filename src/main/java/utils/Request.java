@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 /**
  * Utils para el server/client.
- * @param <T>
- * @param <R>
+ * @param <T> Parámetro de entrada
+ * @param <R> Parámetro de salida
  */
 public class Request<T,R> implements Serializable{
 

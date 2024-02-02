@@ -9,8 +9,8 @@ import model.Controller;
 
 /**
  * Clase itermediaria.
- * @param <T>
- * @param <R>
+ * @param <T> Parámetro de entrada
+ * @param <R> Parámetro de salida
  */
 public class ActionProxyInvocationHandler<T, R> implements InvocationHandler {
 
